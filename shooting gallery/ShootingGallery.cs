@@ -4,10 +4,10 @@ namespace shooting_gallery
 {
     public class ShootingGallery
     {
-        private string[] warehouseGun;
+        private readonly string[] _warehouseGun;
         public ShootingGallery()
         {
-            warehouseGun = new string []
+            _warehouseGun = new string []
             {
                 "AK-47",
                 "AWP",
@@ -22,19 +22,19 @@ namespace shooting_gallery
             {
                 var visitorCivilian = visitor as Civilian;
                 Console.WriteLine($"гражданский {visitorCivilian.FIO} запросил оружие {visitorCivilian.Gun}");
-                if (visitorCivilian.license == true)
+                if (visitorCivilian.License == true)
                 {
                     Console.WriteLine("поиск оружия на складе");
-                    for(var i =0; i< warehouseGun.Length; i++)
+                    for(var i =0; i< _warehouseGun.Length; i++)
                     {
-                        if(warehouseGun[i].Equals(visitorCivilian.Gun))
+                        if(_warehouseGun[i].Equals(visitorCivilian.Gun))
                         {
                             Console.WriteLine($"{visitorCivilian.FIO} получил оружие {visitorCivilian.Gun}");
                             Console.WriteLine($"{visitorCivilian.FIO} стреляет из автомата {visitorCivilian.Gun}");
                         }
                         else
                         {
-                            if (i == warehouseGun.Length-1) { Console.WriteLine("Оружие не найдено на складе"); }
+                            if (i == _warehouseGun.Length-1) { Console.WriteLine("Оружие не найдено на складе"); }
                         }
                     }
                 }

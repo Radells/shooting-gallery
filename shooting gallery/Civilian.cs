@@ -1,9 +1,9 @@
 ﻿
 namespace shooting_gallery
 {
-    public class Civilian : Military
+    public class Civilian : Visitor
     {
-        public bool license { get; set;}
+        public bool License { get; private set;}
         public Civilian(string FIO, string dateBirth, string gender, string gun,bool license)
             :base(FIO, dateBirth, gender, gun)
         {
@@ -11,7 +11,7 @@ namespace shooting_gallery
             this.DateBirth = dateBirth;
             this.Gender = gender;
             this.Gun = gun;
-            this.license = license;
+            this.License = license;
         }
     }
 }
